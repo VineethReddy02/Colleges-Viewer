@@ -1,0 +1,14 @@
+version: '2'
+services:
+  solr:
+    image: solr
+    ports:
+     - "8983:8983"
+    volumes:
+      - data:/opt/solr/server/solr/dataset-ranks
+    entrypoint:
+      - docker-entrypoint.sh
+      - solr-precreate
+      - dataset_ranks
+volumes:
+  data:
